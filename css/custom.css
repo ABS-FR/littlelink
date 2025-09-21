@@ -1,0 +1,84 @@
+/* 1) Confort de lecture: pas de césure au milieu des mots */
+.keep-words { word-break: keep-all; overflow-wrap: normal; hyphens: none; }
+.column-wide { max-width: 620px; }          /* lignes moins compactes */
+.bio { font-size: 1.06rem; line-height: 1.6; }
+
+/* 2) Logo XL + halo doux */
+.avatar--xl { width: 136px; height: 136px; }
+.avatar-ring {
+  display: inline-grid; place-items: center;
+  padding: 8px; border-radius: 999px;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(124,210,255,.35), rgba(124,210,255,0) 70%);
+  filter: drop-shadow(0 0 18px rgba(88,166,255,.25));
+}
+
+/* 3) Titre en dégradé sans cassure */
+.title-gradient {
+  background: linear-gradient(90deg, #7cd2ff, #ff8ad6 55%, #ffd45e);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: 0 0 14px rgba(124, 210, 255, .12);
+  margin-bottom: .35rem;
+}
+.nogap { margin-top: .2rem; }
+
+/* 4) Badge prochaine date */
+.next-badge {
+  display: inline-block;
+  margin: .25rem 0 1rem; padding: .45rem .8rem; border-radius: 999px;
+  font-weight: 700; letter-spacing: .2px;
+  background: rgba(124,210,255,.13);
+  border: 1px solid rgba(124,210,255,.35);
+}
+
+/* 5) Séparateur “confettis” */
+.confetti-sep {
+  height: 10px; margin: 14px 0 18px; opacity: .95;
+  background-image:
+    radial-gradient(circle at 8px 5px, #ffd45e 0 2px, transparent 3px),
+    radial-gradient(circle at 28px 6px, #ff8ad6 0 2px, transparent 3px),
+    radial-gradient(circle at 48px 4px, #7cd2ff 0 2px, transparent 3px);
+  background-size: 56px 10px; background-repeat: repeat-x;
+}
+
+/* 6) Boutons “joyeux” */
+.button { border-radius: 12px; font-weight: 700; }
+.button .icon { display:none; }                  /* on mise sur les emojis */
+.btn-emoji { margin-right: .5rem; font-size: 1.15em; }
+
+/* CTA plus flashy */
+.button-cta {
+  border: none !important; color: #fff !important;
+  background-image: linear-gradient(90deg, #007aff, #00c2ff) !important;
+  box-shadow: 0 10px 24px rgba(0,122,255,.28);
+}
+.button-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,122,255,.35); }
+
+/* Luma bouton petit glow */
+a[href*="luma.com"] { background: linear-gradient(90deg,#4f46e5,#7c3aed) !important; color:#fff !important; }
+
+/* 7) Adresse lisible */
+.address { margin-top: 1rem; font-size: .98rem; line-height: 1.6; opacity: .95; }
+
+/* 8) Fond ANIMÉ doux (GPU friendly) */
+.bg-animated {
+  /* base */
+  background: #0e0f12;
+  /* 3 nappes de dégradés animés */
+  --c1: rgba(0, 122, 255, .12);
+  --c2: rgba(255, 0, 170, .10);
+  --c3: rgba(255, 210, 0, .09);
+  background-image:
+    radial-gradient(40% 30% at 20% 0%, var(--c1), transparent 60%),
+    radial-gradient(35% 35% at 100% 10%, var(--c2), transparent 65%),
+    radial-gradient(45% 35% at 50% 120%, var(--c3), transparent 65%);
+  background-attachment: fixed, fixed, fixed;
+  animation: floaty 20s ease-in-out infinite alternate;
+}
+@keyframes floaty {
+  0% { background-position: 0% 0%, 100% 10%, 50% 120%; }
+  100% { background-position: 10% -5%, 90% 0%, 55% 115%; }
+}
+/* Respecte “réduire les animations” */
+@media (prefers-reduced-motion: reduce) {
+  .bg-animated { animation: none; }
+}
