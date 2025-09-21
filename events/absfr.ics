@@ -1,1 +1,16 @@
-
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ABS-FR//Apéro Blockchain Samui//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:absfr-monthly@abs-fr.github.io
+DTSTAMP:20250921T120000Z
+DTSTART:20251001T130000Z
+DTEND:20251001T150000Z
+SUMMARY:Apéro Blockchain Samui (FR)
+LOCATION:Captain Tom, 128 Thanon Had Lamai, Maret, Koh Samui
+DESCRIPTION:Rencontre mensuelle crypto & blockchain @ Captain Tom, Lamai.\nEsprit : relax, bienveillant, zéro shill.\nTelegram : https://t.me/AperoBlockchainSamui
+RRULE:FREQ=MONTHLY;BYDAY=WE;BYSETPOS=1
+END:VEVENT
+END:VCALENDAR
