@@ -102,3 +102,16 @@ a[href*="lu.ma"] { background: linear-gradient(90deg,#4f46e5,#7c3aed) !important
 @media (prefers-reduced-motion: reduce) {
   .bg-animated { animation: none; }
 }
+/* Facebook = gradient bleu + texte blanc (override fort) */
+.button.button-facebook {
+  color:#fff !important;
+  border:none !important;
+  background-image: linear-gradient(90deg,#1877F2,#00A9FF) !important;
+  box-shadow: 0 10px 24px rgba(24,119,242,.28);
+}
+.button.button-facebook:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(24,119,242,.35);
+}
+.button.button-facebook .icon{ display:none; }
+.button.button-facebook .btn-emoji{ font-size:1.15em; margin-right:.5rem; }
