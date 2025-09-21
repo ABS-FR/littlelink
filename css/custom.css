@@ -82,3 +82,36 @@ a[href*="luma.com"] { background: linear-gradient(90deg,#4f46e5,#7c3aed) !import
 @media (prefers-reduced-motion: reduce) {
   .bg-animated { animation: none; }
 }
+/* Équilibrage des lignes pour titres/badges (supporté par Chrome/Edge/Safari récents) */
+.balance { text-wrap: balance; }
+
+/* Bloc bio en liste, alignement propre même quand ça revient à la ligne */
+.bio-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem auto 1.1rem;
+  max-width: 56ch;          /* longueurs de lignes confortables */
+  text-align: left;         /* pas de “centering” qui casse les lignes */
+}
+.bio-list li {
+  display: grid;
+  grid-template-columns: 1.8em 1fr;  /* colonne icône + texte */
+  gap: .55rem .65rem;
+  align-items: start;
+  margin: .35rem 0;
+  line-height: 1.6;
+}
+.bio-list .i {
+  filter: drop-shadow(0 0 6px rgba(124,210,255,.25));
+  font-size: 1.1em;
+}
+.bio-list strong { font-weight: 800; }
+.bio-list em { opacity: .9; }
+
+/* Le badge peut s’étendre sur 2 lignes sans être “cassé” */
+.next-badge {
+  display: inline-block;
+  max-width: 62ch;
+  padding: .55rem .9rem;
+  border-radius: 16px / 20px; /* coins plus doux, style “pill” */
+}
