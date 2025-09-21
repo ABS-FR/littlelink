@@ -1,6 +1,19 @@
 /* 0) Conteneur un peu plus large pour respirer */
 .column-wide { max-width: 620px !important; }
 
+/* Palette + dégradés homogènes */
+:root{
+  --btn-start: #00a8ff;   /* bleu lagon */
+  --btn-end:   #00d2ff;   /* bleu azur */
+  --btn-shadow: rgba(0,168,255,.28);
+  --btn-shadow-h: rgba(0,168,255,.35);
+
+  --btn-purple-start:#4f46e5; /* Luma */
+  --btn-purple-end:#7c3aed;
+  --btn-purple-shadow: rgba(124,58,237,.28);
+  --btn-purple-shadow-h: rgba(124,58,237,.36);
+}
+
 /* 1) Anti‑césure agressive + équilibrage des titres/badges */
 .keep-words { word-break: keep-all !important; overflow-wrap: normal !important; hyphens: none !important; }
 .nowrap { white-space: nowrap !important; }
@@ -64,20 +77,40 @@
   background-size: 56px 10px; background-repeat: repeat-x;
 }
 
-/* 7) Boutons plus “festifs” */
-.button { border-radius: 12px; font-weight: 700; }
-.button .icon { display: none; }     /* on mise sur les emojis */
-.btn-emoji { margin-right: .5rem; font-size: 1.15em; }
+/* 7) Boutons: style homogène */
+.button { border-radius: 14px; font-weight: 800; letter-spacing:.2px; }
+.button .icon { display: none; }                 /* on mise sur les emojis */
+.btn-emoji { margin-right: .55rem; font-size: 1.15em; }
 
-.button-cta {
-  border: none !important; color: #fff !important;
-  background-image: linear-gradient(90deg, #007aff, #00c2ff) !important;
-  box-shadow: 0 10px 24px rgba(0,122,255,.28);
+/* Base “bleu lagon” (tous les boutons par défaut) */
+.button,
+.button-cta,
+.button-default,
+.button-telegram,
+.button-facebook,
+.button-twitter,
+.button-github,
+.button-maps {
+  color:#fff !important;
+  border: none !important;
+  background-image: linear-gradient(90deg, var(--btn-start), var(--btn-end)) !important;
+  box-shadow: 0 10px 24px var(--btn-shadow);
 }
-.button-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,122,255,.35); }
+.button:hover,
+.button-cta:hover,
+.button-default:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px var(--btn-shadow-h);
+}
 
-/* Spécial Luma (violet) */
-a[href*="lu.ma"] { background: linear-gradient(90deg,#4f46e5,#7c3aed) !important; color:#fff !important; }
+/* Variante Luma (violet) — garde la même finition */
+.button-luma{
+  color:#fff !important;
+  border:none !important;
+  background-image: linear-gradient(90deg, var(--btn-purple-start), var(--btn-purple-end)) !important;
+  box-shadow: 0 10px 24px var(--btn-purple-shadow);
+}
+.button-luma:hover{ transform: translateY(-2px); box-shadow: 0 12px 30px var(--btn-purple-shadow-h); }
 
 /* 8) Adresse lisible */
 .address { margin-top: 1rem; font-size: .98rem; line-height: 1.6; opacity: .95; }
@@ -102,16 +135,3 @@ a[href*="lu.ma"] { background: linear-gradient(90deg,#4f46e5,#7c3aed) !important
 @media (prefers-reduced-motion: reduce) {
   .bg-animated { animation: none; }
 }
-/* Facebook = gradient bleu + texte blanc (override fort) */
-.button.button-facebook {
-  color:#fff !important;
-  border:none !important;
-  background-image: linear-gradient(90deg,#1877F2,#00A9FF) !important;
-  box-shadow: 0 10px 24px rgba(24,119,242,.28);
-}
-.button.button-facebook:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(24,119,242,.35);
-}
-.button.button-facebook .icon{ display:none; }
-.button.button-facebook .btn-emoji{ font-size:1.15em; margin-right:.5rem; }
